@@ -11,7 +11,7 @@ abstract class CompaniesHouseBaseTest extends TestCase
     /**
      * @var string
      */
-    protected $api_key = 'IvSp6uE13FPbE8iDPx6Yey9aQ64jH3Cvm18eAE_N';
+    protected $api_key = null;
 
     /**
      * @var string
@@ -33,7 +33,17 @@ abstract class CompaniesHouseBaseTest extends TestCase
      */
     protected $platform;
 
-    /**
+	/**
+	 * CompaniesHouseBaseTest constructor.
+	 */
+    public function __construct ()
+	{
+		$this->api_key = env('COMPANIES_HOUSE_API_KEY');
+		
+		return parent::__construct();
+	}
+
+	/**
      * @test
      */
     public function setUp()
